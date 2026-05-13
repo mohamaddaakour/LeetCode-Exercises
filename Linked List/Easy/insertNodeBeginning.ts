@@ -51,6 +51,18 @@ class LinkedList<T> {
         }
         return count;
     }
+
+    insertBeg(value: T): void {
+        const newNode: ListNode<T> = new ListNode(value);
+
+        if (!this.head) {
+            this.head = newNode;
+            return;
+        }
+
+        newNode.next = this.head;
+        this.head = newNode;
+    }
 }
 
 const linkedList = new LinkedList();
@@ -58,6 +70,7 @@ const linkedList = new LinkedList();
 linkedList.append(2);
 linkedList.append(5);
 linkedList.append(6);
+linkedList.insertBeg(1);
 linkedList.print();
 
 console.log(`Number of nodes is: ${linkedList.countNodes()}`);
